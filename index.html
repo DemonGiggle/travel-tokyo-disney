@@ -151,6 +151,46 @@
       box-shadow: 0 16px 32px rgba(49, 87, 213, 0.12);
     }
 
+    .check-tools {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 10px 0 14px;
+    }
+    .check-btn {
+      border: 1px solid #dbe4ff;
+      background: #fff;
+      color: #2a3b8f;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .check-btn.active {
+      background: #2f49b8;
+      color: #fff;
+      border-color: #2f49b8;
+    }
+    .checklist-panel {
+      display: none;
+      border: 1px solid #dbe4ff;
+      border-radius: 14px;
+      padding: 14px;
+      background: #fff;
+      margin-bottom: 14px;
+    }
+    .checklist-mode .checklist-panel { display: block; }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 4px;
+      border-bottom: 1px dashed #e6ecff;
+    }
+    .check-item:last-child { border-bottom: 0; }
+    .check-item input { margin-top: 3px; }
+
     .mapcard {
       border: 1px solid #dbe4ff;
       border-radius: 14px;
@@ -208,6 +248,19 @@
 
     <section id="prep">
       <h2>🧳 行前準備清單</h2>
+
+      <div class="check-tools">
+        <button id="checkModeBtn" class="check-btn" type="button">✅ 開啟 Checklist 模式</button>
+      </div>
+
+      <div class="checklist-panel" aria-label="行前 Checklist">
+        <div class="check-item"><input type="checkbox" id="c1"><label for="c1">護照（有效期限 6 個月以上）</label></div>
+        <div class="check-item"><input type="checkbox" id="c2"><label for="c2">CI100 / CI101 航班資訊與電子機票</label></div>
+        <div class="check-item"><input type="checkbox" id="c3"><label for="c3">東京迪士尼官方 App 與門票 QR Code 截圖備份</label></div>
+        <div class="check-item"><input type="checkbox" id="c4"><label for="c4">eSIM / 網路設定完成</label></div>
+        <div class="check-item"><input type="checkbox" id="c5"><label for="c5">Japan Web Visa / Visit Japan Web 填寫完成（<a href="https://www.vjw.digital.go.jp/" target="_blank" rel="noopener">前往填寫</a>）</label></div>
+      </div>
+
       <ul>
         <li><strong>證件文件</strong>
           <ul>
@@ -215,6 +268,7 @@
             <li>機票電子檔／CI100、CI101 航班資訊</li>
             <li>飯店訂房確認信（迪士尼飯店、格拉斯麗淺草）</li>
             <li>旅遊保險資料</li>
+            <li>Japan Web Visa／Visit Japan Web 入境資料填寫（<a href="https://www.vjw.digital.go.jp/" target="_blank" rel="noopener">https://www.vjw.digital.go.jp/</a>）</li>
           </ul>
         </li>
         <li><strong>交通與通訊</strong>
@@ -442,5 +496,38 @@
   <footer>
     <p>此頁面可直接分享給同行家人或朋友 😊</p>
   </footer>
+
+  <script>
+    const root = document.body;
+    const modeBtn = document.getElementById('checkModeBtn');
+    const checkboxes = Array.from(document.querySelectorAll('.checklist-panel input[type="checkbox"]'));
+
+    const modeKey = 'tokyoDisneyChecklistMode';
+    const checksKey = 'tokyoDisneyChecklistState';
+
+    const savedMode = localStorage.getItem(modeKey) === 'on';
+    const savedChecks = JSON.parse(localStorage.getItem(checksKey) || '{}');
+
+    if (savedMode) {
+      root.classList.add('checklist-mode');
+      modeBtn.classList.add('active');
+      modeBtn.textContent = '✅ Checklist 模式已開啟';
+    }
+
+    checkboxes.forEach(cb => {
+      if (savedChecks[cb.id]) cb.checked = true;
+      cb.addEventListener('change', () => {
+        const state = Object.fromEntries(checkboxes.map(x => [x.id, x.checked]));
+        localStorage.setItem(checksKey, JSON.stringify(state));
+      });
+    });
+
+    modeBtn?.addEventListener('click', () => {
+      const on = root.classList.toggle('checklist-mode');
+      modeBtn.classList.toggle('active', on);
+      modeBtn.textContent = on ? '✅ Checklist 模式已開啟' : '✅ 開啟 Checklist 模式';
+      localStorage.setItem(modeKey, on ? 'on' : 'off');
+    });
+  </script>
 </body>
 </html>
