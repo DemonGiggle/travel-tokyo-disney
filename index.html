@@ -101,6 +101,56 @@
     .legend .badge { margin-right: 0; }
     .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
+    .quicknav {
+      position: sticky;
+      top: 8px;
+      z-index: 20;
+      max-width: 1120px;
+      margin: 14px auto 0;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .82);
+      border: 1px solid #dfe7ff;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(30, 58, 138, .10);
+      display: flex;
+      gap: 8px;
+      overflow: auto;
+      scrollbar-width: thin;
+    }
+    .quicknav a {
+      white-space: nowrap;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #dce5ff;
+      background: #fff;
+      color: #2a3b8f;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all .2s ease;
+    }
+    .quicknav a:hover { background: #eef3ff; transform: translateY(-1px); }
+
+    .overview {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .kpi {
+      background: #fff;
+      border: 1px solid #dbe4ff;
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .kpi .label { color: #64748b; font-size: 12px; margin-bottom: 4px; }
+    .kpi .value { font-weight: 800; color: #1e3a8a; }
+
+    .day-card {
+      border: 1px solid #dbe4ff;
+      box-shadow: 0 16px 32px rgba(49, 87, 213, 0.12);
+    }
+
     .mapcard {
       border: 1px solid #dbe4ff;
       border-radius: 14px;
@@ -114,6 +164,15 @@
     .zone { opacity:.92; stroke:#111827; stroke-width:.8 }
     .zlabel { font-size:12px; font-weight:800; fill:#111827 }
     .gate { fill:#111827 }
+
+    @media (max-width: 860px) {
+      .overview { grid-template-columns: 1fr 1fr; }
+      .quicknav { top: 4px; }
+    }
+    @media (max-width: 560px) {
+      .overview { grid-template-columns: 1fr; }
+      header { padding: 24px; margin: 14px auto 0; }
+    }
   </style>
 </head>
 <body>
@@ -128,8 +187,26 @@
     </div>
   </header>
 
+  <nav class="quicknav" aria-label="行程快速導覽">
+    <a href="#prep">行前清單</a>
+    <a href="#arrival">去程與進場</a>
+    <a href="#day1">Day 1 Disneyland</a>
+    <a href="#day2">Day 2 DisneySea</a>
+    <a href="#return">回程</a>
+  </nav>
+
   <main>
-    <section>
+    <section aria-label="行程總覽">
+      <h2>🧭 行程總覽</h2>
+      <div class="overview">
+        <div class="kpi"><div class="label">天數</div><div class="value">4 天 3 夜</div></div>
+        <div class="kpi"><div class="label">成員</div><div class="value">2 大 1 小</div></div>
+        <div class="kpi"><div class="label">樂園日</div><div class="value">2 天（Land + Sea）</div></div>
+        <div class="kpi"><div class="label">主要住宿</div><div class="value">Disney + 淺草</div></div>
+      </div>
+    </section>
+
+    <section id="prep">
       <h2>🧳 行前準備清單</h2>
       <ul>
         <li><strong>證件文件</strong>
@@ -165,7 +242,7 @@
       </ul>
     </section>
 
-    <section>
+    <section id="arrival">
       <h2>✈️ 去程航班</h2>
       <ul>
         <li><span class="time">08:50</span> 桃園國際機場第二航廈 → 華航 CI100 起飛</li>
@@ -227,8 +304,8 @@
       </ul>
     </section>
 
-    <section>
-      <h2>📅 4/4（六）Tokyo Disneyland</h2>
+    <section id="day1" class="day-card">
+      <h2>📅 Day 1｜4/4（六）Tokyo Disneyland</h2>
       <ul>
         <li><strong>建議停留：開園～夜間壓軸（建議待到閉園）</strong></li>
         <li>熱門優先順序（白天攻略）：
@@ -288,8 +365,8 @@
       </div>
     </section>
 
-    <section>
-      <h2>📅 4/5（日）Tokyo DisneySea → 淺草 → 晴空塔</h2>
+    <section id="day2" class="day-card">
+      <h2>📅 Day 2｜4/5（日）Tokyo DisneySea → 淺草 → 晴空塔</h2>
       <ul>
         <li><strong>09:00–16:00｜Tokyo DisneySea</strong></li>
         <li>Sea 熱門優先順序（每區至少一項）：
@@ -347,8 +424,8 @@
 
     
 
-    <section>
-      <h2>✈️ 4/6 回程（不排行程）</h2>
+    <section id="return">
+      <h2>✈️ Day 3｜4/6 回程（不排行程）</h2>
       <ul>
         <li>上午自由整理行李、輕鬆退房</li>
         <li><span class="time">建議 10:30</span> 從淺草出發前往成田機場</li>
