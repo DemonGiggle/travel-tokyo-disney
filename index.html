@@ -1,550 +1,369 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FlowPilot — Plan Tokyo Disney Like a Pro</title>
-  <meta name="description" content="A premium planning platform for seamless Tokyo Disney itineraries." />
+  <title>東京行程分享｜4/3–4/6</title>
   <style>
     :root {
-      --bg: #f7f9ff;
-      --surface: #ffffff;
+      --bg: #f3f7ff;
+      --card: rgba(255,255,255,0.92);
       --text: #0f172a;
       --muted: #475569;
-      --line: #e6ebff;
-      --primary: #4f46e5;
-      --primary-2: #7c3aed;
-      --ok: #16a34a;
-      --shadow-sm: 0 4px 16px rgba(15, 23, 42, 0.06);
-      --shadow-md: 0 10px 30px rgba(79, 70, 229, 0.14);
-      --radius: 16px;
-      --radius-lg: 24px;
-      --w: 1200px;
+      --line: #d9e2ff;
+      --primary: #3157d5;
+      --accent: #8b5cf6;
+      --shadow: 0 12px 35px rgba(49, 87, 213, 0.12);
+      --radius: 18px;
     }
 
     * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
     body {
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.6;
-    }
-
-    .container {
-      width: min(var(--w), calc(100% - 48px));
-      margin-inline: auto;
-    }
-
-    .section { padding: 88px 0; }
-
-    /* Header */
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(8px);
-      background: rgba(247, 249, 255, 0.8);
-      border-bottom: 1px solid rgba(230, 235, 255, 0.8);
-    }
-
-    .nav {
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
-
-    .brand-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
-      box-shadow: 0 0 0 6px rgba(79, 70, 229, 0.14);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .nav-links a { text-decoration: none; color: inherit; transition: color .25s ease; }
-    .nav-links a:hover { color: var(--text); }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border: 0;
-      border-radius: 12px;
-      padding: 12px 20px;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      transition: transform .2s ease, box-shadow .25s ease, background .25s ease;
-    }
-
-    .btn-primary {
-      color: #fff;
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
-      box-shadow: var(--shadow-md);
-    }
-
-    .btn-primary:hover { transform: translateY(-2px); }
-
-    .btn-ghost {
-      color: var(--text);
-      background: #fff;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .btn-ghost:hover { border-color: #cfd8ff; transform: translateY(-1px); }
-
-    /* Hero */
-    .hero {
-      padding-top: 72px;
-      position: relative;
-      overflow: clip;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 10% 10%, rgba(99, 102, 241, .28), transparent 35%),
-        radial-gradient(circle at 90% 15%, rgba(168, 85, 247, .24), transparent 34%),
-        radial-gradient(circle at 50% 110%, rgba(59, 130, 246, .12), transparent 30%);
-      pointer-events: none;
-    }
-
-    .hero-grid {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, .85);
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 12px;
-      color: #334155;
-      margin-bottom: 16px;
-    }
-
-    h1 {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
-      font-size: clamp(40px, 6vw, 64px);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% -10%, rgba(99,102,241,.25), transparent 35%),
+        radial-gradient(circle at 90% 0%, rgba(168,85,247,.20), transparent 30%),
+        var(--bg);
+      line-height: 1.72;
     }
 
-    .lead {
-      margin-top: 24px;
-      font-size: clamp(16px, 2vw, 19px);
-      color: var(--muted);
-      max-width: 60ch;
+    header {
+      max-width: 1120px;
+      margin: 24px auto 0;
+      padding: 32px;
+      border-radius: 24px;
+      color: #fff;
+      background: linear-gradient(125deg, #1e3a8a, #3157d5 55%, #7c3aed 100%);
+      box-shadow: var(--shadow);
+    }
+    header h1 { margin: 0; font-size: clamp(1.7rem, 2.6vw, 2.6rem); letter-spacing: .2px; }
+    header p { margin: 8px 0 0; opacity: .95; }
+    .hero-meta { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.25);
+      font-size: 12px;
+      font-weight: 700;
+      backdrop-filter: blur(4px);
     }
 
-    .hero-cta {
-      margin-top: 32px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .stats {
-      margin-top: 28px;
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      color: #334155;
-      font-size: 14px;
-    }
-
-    .hero-card {
-      background: rgba(255, 255, 255, .9);
-      border: 1px solid #eef2ff;
-      border-radius: var(--radius-lg);
+    main { max-width: 1120px; margin: auto; padding: 20px 14px 36px; }
+    section {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.7);
+      border-radius: var(--radius);
       padding: 24px;
-      box-shadow: var(--shadow-md);
+      margin-bottom: 18px;
+      box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
     }
-
-    .hero-card h3 { margin: 0 0 12px; font-size: 18px; }
-    .hero-card p { margin: 0; color: var(--muted); }
-
-    .mini-list {
-      margin: 20px 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 12px;
-    }
-
-    .mini-list li {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 12px 14px;
-      transition: transform .2s ease, box-shadow .25s ease;
-    }
-
-    .mini-list li:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
-
-    /* Features */
-    .section-title {
-      text-align: center;
-      margin: 0 auto 52px;
-      max-width: 760px;
-    }
-
-    .section-title h2 {
-      margin: 0;
-      font-size: clamp(30px, 4vw, 44px);
-      line-height: 1.14;
-      letter-spacing: -0.02em;
-    }
-
-    .section-title p { margin-top: 16px; color: var(--muted); font-size: 17px; }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .feature-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow-sm);
-      transition: transform .2s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: #d7ddff;
-      box-shadow: var(--shadow-md);
-    }
-
-    .feature-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      font-size: 18px;
-      background: linear-gradient(135deg, #eef2ff, #f5ecff);
-      margin-bottom: 14px;
-    }
-
-    .feature-card h3 { margin: 0 0 8px; font-size: 18px; }
-    .feature-card p { margin: 0; color: var(--muted); }
-
-    /* Screenshots */
-    .shots {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 16px;
-    }
-
-    .shot {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
-      overflow: hidden;
-      transition: transform .2s ease, box-shadow .25s ease;
-    }
-
-    .shot:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-
-    .shot-head {
-      height: 42px;
+    h2 {
+      margin-top: 0;
+      color: #1f3fb3;
+      font-size: 1.25rem;
       border-bottom: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 0 14px;
-      color: #64748b;
-      font-size: 13px;
+      padding-bottom: 8px;
     }
 
-    .dot { width: 10px; height: 10px; border-radius: 999px; background: #c7d2fe; }
-
-    .shot-body {
-      padding: 20px;
-      min-height: 220px;
-      display: grid;
-      align-content: start;
-      gap: 12px;
-    }
-
-    .bar {
-      height: 12px;
+    ul { padding-left: 20px; }
+    li { margin: 6px 0; }
+    .time {
+      font-weight: 800;
+      color: #1e3a8a;
+      background: #e8efff;
+      padding: 1px 8px;
       border-radius: 999px;
-      background: linear-gradient(90deg, #e9edff, #f4e9ff);
     }
 
-    .bar.w80 { width: 80%; }
-    .bar.w60 { width: 60%; }
-    .bar.w40 { width: 40%; }
-
-    /* Testimonials */
-    .quote-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .quote {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .quote p { margin: 0; color: #1f2937; }
-    .quote small { display: block; margin-top: 14px; color: var(--muted); }
-
-    /* CTA */
-    .cta-wrap {
-      border: 1px solid #dbe3ff;
-      background: linear-gradient(120deg, #eef2ff, #f5ecff);
-      border-radius: 24px;
-      padding: 40px;
-      text-align: center;
-      box-shadow: var(--shadow-md);
-    }
-
-    .cta-wrap h2 { margin: 0; font-size: clamp(28px, 4vw, 40px); }
-    .cta-wrap p { margin: 14px auto 24px; max-width: 56ch; color: #4b5563; }
-
-    /* Footer */
     footer {
-      border-top: 1px solid var(--line);
-      padding: 24px 0 48px;
-      color: #64748b;
-      font-size: 14px;
+      text-align: center;
+      padding: 6px 24px 28px;
+      color: #5b6472;
+      font-size: .95rem;
     }
 
-    .foot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
+    a { color: #1d4ed8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    .foot-nav { display: flex; gap: 16px; }
-    .foot-nav a { color: inherit; text-decoration: none; }
-    .foot-nav a:hover { color: #334155; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; color: #fff; vertical-align: 1px; margin-right: 6px; }
+    .b-jr-je { background: #DC143C; }
+    .b-jr-jo { background: #0070B9; }
+    .b-tm-g  { background: #F39700; }
+    .b-ks    { background: #005AAA; }
+    .b-drl   { background: #7A7A7A; }
 
-    /* Responsive */
-    @media (max-width: 980px) {
-      .hero-grid,
-      .shots { grid-template-columns: 1fr; }
-      .feature-grid,
-      .quote-grid { grid-template-columns: 1fr 1fr; }
-      .section { padding: 72px 0; }
-    }
+    .hint { color: var(--muted); margin-top: 6px; font-size: .95rem; }
+    .legend { display:flex; flex-wrap:wrap; gap:8px; margin: 10px 0 0; }
+    .legend .badge { margin-right: 0; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
-    @media (max-width: 640px) {
-      .container { width: min(var(--w), calc(100% - 32px)); }
-      .nav-links { display: none; }
-      .feature-grid,
-      .quote-grid { grid-template-columns: 1fr; }
-      .hero { padding-top: 48px; }
-      .section { padding: 64px 0; }
-      .cta-wrap { padding: 28px 20px; }
+    .mapcard {
+      border: 1px solid #dbe4ff;
+      border-radius: 14px;
+      padding: 14px;
+      background: #fcfdff;
     }
+    .maptitle { margin:0 0 8px; color:#111827; font-weight:800 }
+    .svgmap { width:100%; height:auto; display:block; border-radius:10px; background:#f9fafb; border:1px solid rgba(0,0,0,0.08) }
+    .pin { font-weight:800; font-size:12px; fill:#111827 }
+    .pinc { fill:#fff; stroke:#111827; stroke-width:1.2 }
+    .zone { opacity:.92; stroke:#111827; stroke-width:.8 }
+    .zlabel { font-size:12px; font-weight:800; fill:#111827 }
+    .gate { fill:#111827 }
   </style>
 </head>
 <body>
-  <header class="topbar" aria-label="Top navigation">
-    <div class="container nav">
-      <div class="brand"><span class="brand-dot"></span>FlowPilot</div>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#features">Features</a>
-        <a href="#product">Product</a>
-        <a href="#stories">Stories</a>
-        <a href="#pricing">Pricing</a>
-      </nav>
-      <a class="btn btn-primary" href="#cta">Start Free</a>
+  <header>
+    <h1>Tokyo Disney Family Trip</h1>
+    <p>東京 4 天 3 夜行程提案（2026/4/3–4/6）｜2 大 1 小</p>
+    <div class="hero-meta">
+      <span class="chip">Disneyland + DisneySea</span>
+      <span class="chip">親子友善動線</span>
+      <span class="chip">交通轉乘已標示</span>
+      <span class="chip">UI Revamp v2</span>
     </div>
   </header>
 
   <main>
-    <section class="hero section" aria-label="Hero">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">⚡ Built for premium trip execution</div>
-          <h1>Plan Tokyo Disney trips with SaaS-level precision.</h1>
-          <p class="lead">FlowPilot gives your family a clear timeline, route-aware recommendations, and dynamic updates for DisneyLand + DisneySea in one beautifully designed workspace.</p>
-          <div class="hero-cta">
-            <a href="#cta" class="btn btn-primary">Get Started</a>
-            <a href="#product" class="btn btn-ghost">See Product</a>
-          </div>
-          <div class="stats" aria-label="Key metrics">
-            <span>✓ 3.2x faster planning</span>
-            <span>✓ 98% schedule clarity</span>
-            <span>✓ Loved by family travelers</span>
-          </div>
-        </div>
-
-        <aside class="hero-card" aria-label="Live planner preview">
-          <h3>Live Trip Board</h3>
-          <p>Auto-prioritized attractions, transfer buffers, and meal windows.</p>
-          <ul class="mini-list">
-            <li><span>Disneyland Priority Queue</span><strong>08:40</strong></li>
-            <li><span>JR + Metro Transfer Plan</span><strong>17:00</strong></li>
-            <li><span>SkyTree + Pokémon Center</span><strong>19:00</strong></li>
+    <section>
+      <h2>🧳 行前準備清單</h2>
+      <ul>
+        <li><strong>證件文件</strong>
+          <ul>
+            <li>護照（有效期限 6 個月以上）</li>
+            <li>機票電子檔／CI100、CI101 航班資訊</li>
+            <li>飯店訂房確認信（迪士尼飯店、格拉斯麗淺草）</li>
+            <li>旅遊保險資料</li>
           </ul>
-        </aside>
+        </li>
+        <li><strong>交通與通訊</strong>
+          <ul>
+            <li>Suica / PASMO 交通卡或綁定手機支付</li>
+            <li>eSIM 或 Wi‑Fi 分享器</li>
+            <li>機場到迪士尼交通備案（JR / 巴士）</li>
+          </ul>
+        </li>
+        <li><strong>迪士尼相關</strong>
+          <ul>
+            <li>已下載東京迪士尼官方 App</li>
+            <li>園區門票 QR Code 截圖備份</li>
+            <li>行動電源（排隊時耗電快）</li>
+          </ul>
+        </li>
+        <li><strong>隨身建議攜帶</strong>
+          <ul>
+            <li>薄外套（4 月早晚溫差大）</li>
+            <li>輕便雨具</li>
+            <li>水壺（園區可補水）</li>
+            <li>小孩替換衣物 1 套</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>✈️ 去程航班</h2>
+      <ul>
+        <li><span class="time">08:50</span> 桃園國際機場第二航廈 → 華航 CI100 起飛</li>
+        <li><span class="time">13:15</span> 抵達 成田國際機場</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🚆 成田機場 → 東京迪士尼飯店（鐵道／巴士動線）</h2>
+      <ul>
+        <li>
+          <strong>方案一：JR 鐵道轉乘（穩定、班次多）</strong>
+        </li>
+        <li>
+          <span class="badge b-jr-jo">JR JO</span>
+          成田機場（第二航廈）站 → <strong>東京站</strong>（JR <strong>總武線快速 Sobu Rapid</strong>／<strong>成田線 Narita Line</strong> 系統）
+          <div class="hint">找月台指標：<span class="mono">JR</span> → <span class="mono">JO</span>（藍色）</div>
+        </li>
+        <li>
+          <span class="badge b-jr-je">JR JE</span>
+          東京站 → <strong>舞濱站（Maihama）</strong>（JR 京葉線 <strong>Keiyō Line</strong>／<strong>武藏野線直通</strong>）
+          <div class="hint">找月台指標：<span class="mono">JR</span> → <span class="mono">JE</span>（紅色／深紅）</div>
+        </li>
+        <li>
+          <span class="badge b-drl">Resort</span>
+          舞濱站 →（步行連通道）→ <strong>Resort Gateway Station</strong> → 迪士尼度假區線（單軌）→ <strong>Tokyo Disneyland Station</strong> → 步行至 Disneyland Hotel
+          <div class="hint">也可從舞濱站步行至飯店（約 15–20 分鐘）。</div>
+        </li>
+
+        <li style="margin-top:12px">
+          <strong>方案二：機場利木津巴士（直達、免搬行李）</strong>
+        </li>
+        <li>
+          🚌 <strong>成田機場 → 東京迪士尼樂園飯店</strong>（Airport Limousine Bus 直達）
+          <div class="hint">下車即在迪士尼官方飯店門口，適合攜帶行李與小孩同行。</div>
+          <div class="hint">車程約 60–90 分鐘（視交通狀況），班次依時段不同，建議事先查詢當日時刻表。</div>
+        </li>
+      </ul>
+
+      <div class="legend" aria-label="路線速查">
+        <span class="badge b-jr-jo">JR JO</span>
+        <span class="badge b-jr-je">JR JE</span>
+        <span class="badge b-drl">Resort</span>
+      </div>
+      <p class="hint">建議：若抵達時間為下午尖峰或行李多，優先考慮巴士；若想掌握時間與班次彈性，選 JR 鐵道。</p>
+    </section>
+
+    <section>
+      <h2>🏨 住宿安排</h2>
+      <ul>
+        <li>
+          <strong>東京迪士尼樂園飯店</strong><br />
+          入住：4/3｜退房：4/5
+        </li>
+        <li>
+          <strong>格拉斯麗淺草飯店</strong><br />
+          入住：4/5｜退房：4/6
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📅 4/4（六）Tokyo Disneyland</h2>
+      <ul>
+        <li><strong>建議停留：開園～夜間壓軸（建議待到閉園）</strong></li>
+        <li>熱門優先順序（白天攻略）：
+          <ol>
+            <li><strong>美女與野獸：城堡奇緣</strong><br><span class="hint">夢幻樂園，園區最熱門設施，建議入園後第一站。</span></li>
+            <li><strong>飛濺山</strong><br><span class="hint">動物天地，午後排隊時間長。</span></li>
+            <li><strong>Baymax 歡樂之旅</strong><br><span class="hint">明日樂園，旋轉型設施。</span></li>
+            <li><strong>怪獸電力公司</strong><br><span class="hint">明日樂園，室內射擊型。</span></li>
+            <li><strong>加勒比海盜</strong><br><span class="hint">探險樂園，室內涼爽。</span></li>
+            <li><strong>巨雷山</strong><br><span class="hint">西部樂園，經典礦車設施。</span></li>
+            <li><strong>叢林巡航</strong><br><span class="hint">探險樂園，節奏放鬆型。</span></li>
+            <li><strong>小小世界</strong><br><span class="hint">夢幻樂園，補位休息用。</span></li>
+          </ol>
+        </li>
+        <li><strong>夜間壓軸（重點安排）</strong>
+          <ul>
+            <li><strong>夜間遊行 Electrical Parade Dreamlights</strong><br><span class="hint">通常於晚間舉行（實際時間依當日公告），建議提前 30–45 分鐘卡位。</span></li>
+            <li><strong>城堡煙火秀（視當日天氣）</strong><br><span class="hint">多安排在閉園前，可能因風勢取消，請當天查看官方 App。</span></li>
+          </ul>
+        </li>
+        <li class="hint">建議節奏：白天主攻熱門設施 → 傍晚減少排隊改拍照與補位設施 → 晚間專心看遊行與煙火作為壓軸。</li>
+      </ul>
+
+      <div class="mapcard" style="margin-top:20px">
+        <div class="maptitle">Land 熱門設施相對位置示意圖（入口在下方）</div>
+        <svg class="svgmap" viewBox="0 0 760 480">
+          <rect class="zone" x="250" y="40" width="220" height="150" rx="12" style="fill:#FDE68A"/>
+          <text class="zlabel" x="300" y="70">夢幻樂園</text>
+
+          <rect class="zone" x="500" y="60" width="220" height="150" rx="12" style="fill:#BFDBFE"/>
+          <text class="zlabel" x="550" y="90">明日樂園</text>
+
+          <rect class="zone" x="80" y="160" width="180" height="160" rx="12" style="fill:#BBF7D0"/>
+          <text class="zlabel" x="105" y="190">探險樂園</text>
+
+          <rect class="zone" x="280" y="230" width="220" height="170" rx="12" style="fill:#FBCFE8"/>
+          <text class="zlabel" x="330" y="260">動物天地</text>
+
+          <rect class="zone" x="520" y="250" width="180" height="150" rx="12" style="fill:#DDD6FE"/>
+          <text class="zlabel" x="540" y="280">西部樂園</text>
+
+          <rect class="zone" x="280" y="370" width="200" height="70" rx="12" style="fill:#E5E7EB"/>
+          <text class="zlabel" x="315" y="405">世界市集</text>
+
+          <polygon class="gate" points="350,455 390,455 370,420" />
+
+          <!-- Pins 1-8 -->
+          <circle class="pinc" cx="360" cy="110" r="14"/><text class="pin" x="355" y="114">1</text>
+          <circle class="pinc" cx="380" cy="300" r="14"/><text class="pin" x="375" y="304">2</text>
+          <circle class="pinc" cx="600" cy="110" r="14"/><text class="pin" x="595" y="114">3</text>
+          <circle class="pinc" cx="640" cy="160" r="14"/><text class="pin" x="635" y="164">4</text>
+          <circle class="pinc" cx="140" cy="240" r="14"/><text class="pin" x="135" y="244">5</text>
+          <circle class="pinc" cx="600" cy="310" r="14"/><text class="pin" x="595" y="314">6</text>
+          <circle class="pinc" cx="120" cy="200" r="14"/><text class="pin" x="115" y="204">7</text>
+          <circle class="pinc" cx="420" cy="150" r="14"/><text class="pin" x="415" y="154">8</text>
+        </svg>
       </div>
     </section>
 
-    <section id="features" class="section" aria-label="Product features">
-      <div class="container">
-        <div class="section-title">
-          <h2>A modern planning stack for complex travel days</h2>
-          <p>From itinerary intelligence to route confidence, everything is designed for clarity, speed, and polished execution.</p>
-        </div>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <div class="feature-icon">🗺️</div>
-            <h3>Smart Route Graph</h3>
-            <p>Visualize JR, Metro, and resort lines with transfer friction scoring and fallback paths.</p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon">⏱️</div>
-            <h3>Time-aware Priorities</h3>
-            <p>Automatically suggests ride order by popularity curve, distance, and family pace.</p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon">📱</div>
-            <h3>Mobile-first Timeline</h3>
-            <p>Clean, thumb-friendly cards optimized for in-park use and quick family check-ins.</p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon">🎯</div>
-            <h3>Goal-based Day Planning</h3>
-            <p>Pick “thrill”, “family”, or “balanced” mode and get a tuned schedule instantly.</p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon">🔔</div>
-            <h3>Contextual Alerts</h3>
-            <p>Highlights weather shifts, crowd spikes, and transport delays before they hurt your day.</p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon">🤝</div>
-            <h3>Share-ready Views</h3>
-            <p>Send a polished public itinerary link to family with zero onboarding friction.</p>
-          </article>
-        </div>
+    <section>
+      <h2>📅 4/5（日）Tokyo DisneySea → 淺草 → 晴空塔</h2>
+      <ul>
+        <li><strong>09:00–16:00｜Tokyo DisneySea</strong></li>
+        <li>Sea 熱門優先順序（每區至少一項）：
+          <ol>
+            <li><strong>翱翔：夢幻奇航（Soaring）</strong><br><span class="hint">地中海港灣，全園最熱門。</span></li>
+            <li><strong>玩具總動員瘋狂遊戲屋</strong><br><span class="hint">美國海濱，高互動設施。</span></li>
+            <li><strong>地心探險之旅</strong><br><span class="hint">神秘島，刺激型設施。</span></li>
+            <li><strong>印第安納瓊斯冒險旅程</strong><br><span class="hint">失落河三角洲，經典設施。</span></li>
+            <li><strong>驚魂古塔</strong><br><span class="hint">美國海濱，傍晚人氣高。</span></li>
+            <li><strong>神燈劇場</strong><br><span class="hint">阿拉伯海岸，室內表演型設施。</span></li>
+          </ol>
+        </li>
+        <li><strong>17:00｜舞濱出發</strong>
+          <div class="hint"><span class="badge b-jr-je">JR JE</span> 京葉線 → 東京站 → <span class="badge b-tm-g">G</span> 銀座線 → 淺草站</div>
+        </li>
+        <li><strong>18:30｜抵達飯店</strong></li>
+        <li><strong>19:00–21:00｜晴空塔 Solamachi ＋ 寶可夢中心</strong></li>
+      </ul>
+
+      <div class="mapcard" style="margin-top:20px">
+        <div class="maptitle">Sea 熱門設施相對位置示意圖（入口在下方）</div>
+        <svg class="svgmap" viewBox="0 0 760 480">
+          <rect class="zone" x="140" y="60" width="240" height="150" rx="12" style="fill:#E0F2FE"/>
+          <text class="zlabel" x="190" y="90">地中海港灣</text>
+
+          <rect class="zone" x="430" y="70" width="250" height="150" rx="12" style="fill:#FED7AA"/>
+          <text class="zlabel" x="480" y="100">美國海濱</text>
+
+          <rect class="zone" x="100" y="240" width="220" height="160" rx="12" style="fill:#C7D2FE"/>
+          <text class="zlabel" x="135" y="270">神秘島</text>
+
+          <rect class="zone" x="360" y="240" width="200" height="160" rx="12" style="fill:#BBF7D0"/>
+          <text class="zlabel" x="395" y="270">失落河三角洲</text>
+
+          <rect class="zone" x="590" y="240" width="140" height="160" rx="12" style="fill:#E9D5FF"/>
+          <text class="zlabel" x="605" y="270">阿拉伯海岸</text>
+
+          <rect class="zone" x="280" y="380" width="200" height="70" rx="12" style="fill:#E5E7EB"/>
+          <text class="zlabel" x="310" y="410">入口廣場</text>
+
+          <polygon class="gate" points="350,470 390,470 370,435" />
+
+          <!-- Pins 1-6 -->
+          <circle class="pinc" cx="250" cy="120" r="14"/><text class="pin" x="245" y="124">1</text>
+          <circle class="pinc" cx="560" cy="120" r="14"/><text class="pin" x="555" y="124">2</text>
+          <circle class="pinc" cx="210" cy="315" r="14"/><text class="pin" x="205" y="319">3</text>
+          <circle class="pinc" cx="450" cy="310" r="14"/><text class="pin" x="445" y="314">4</text>
+          <circle class="pinc" cx="630" cy="170" r="14"/><text class="pin" x="625" y="174">5</text>
+          <circle class="pinc" cx="650" cy="300" r="14"/><text class="pin" x="645" y="304">6</text>
+        </svg>
       </div>
     </section>
 
-    <section id="product" class="section" aria-label="Product screenshots">
-      <div class="container">
-        <div class="section-title">
-          <h2>Product views that make decisions obvious</h2>
-          <p>Designed with strong visual hierarchy, concise content, and calm interaction patterns.</p>
-        </div>
-        <div class="shots">
-          <article class="shot">
-            <div class="shot-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Itinerary Timeline</div>
-            <div class="shot-body">
-              <div class="bar w80"></div>
-              <div class="bar w60"></div>
-              <div class="bar"></div>
-              <div class="bar w40"></div>
-              <div class="bar w80"></div>
-            </div>
-          </article>
-          <article class="shot">
-            <div class="shot-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Route Planner</div>
-            <div class="shot-body">
-              <div class="bar"></div>
-              <div class="bar w60"></div>
-              <div class="bar w40"></div>
-              <div class="bar w80"></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+    
 
-    <section id="stories" class="section" aria-label="Testimonials">
-      <div class="container">
-        <div class="section-title">
-          <h2>Teams and families trust the execution quality</h2>
-          <p>Professional-level UI and practical planning logic in one experience.</p>
-        </div>
-        <div class="quote-grid">
-          <article class="quote">
-            <p>“The interface feels like Stripe-level product quality. We planned 4 days in under 30 minutes.”</p>
-            <small>— Product Manager, Taipei</small>
-          </article>
-          <article class="quote">
-            <p>“Clean, calm, and fast. The route transitions saved us from two bad transfer decisions.”</p>
-            <small>— Family Traveler, Taichung</small>
-          </article>
-          <article class="quote">
-            <p>“Finally a trip planner with true design discipline and practical day-of usability.”</p>
-            <small>— Design Lead, Tokyo</small>
-          </article>
-        </div>
-      </div>
-    </section>
+    
 
-    <section id="cta" class="section" aria-label="Call to action">
-      <div class="container">
-        <div class="cta-wrap">
-          <h2>Build your premium Tokyo Disney plan in minutes.</h2>
-          <p>Start with your dates, choose your travel style, and launch a polished itinerary instantly.</p>
-          <a class="btn btn-primary" href="#">Start Planning Now</a>
-        </div>
-      </div>
+    <section>
+      <h2>✈️ 4/6 回程（不排行程）</h2>
+      <ul>
+        <li>上午自由整理行李、輕鬆退房</li>
+        <li><span class="time">建議 10:30</span> 從淺草出發前往成田機場</li>
+        <li>
+          <span class="badge b-ks">KS</span>
+          京成電鐵 Access 特快（成田 Sky Access 線）直達成田機場第二航廈
+        </li>
+        <li>車程約 90 分鐘</li>
+        <li><span class="time">14:30</span> CI101 起飛</li>
+      </ul>
     </section>
   </main>
 
-  <footer id="pricing">
-    <div class="container foot">
-      <span>© 2026 FlowPilot. Designed for modern travel operations.</span>
-      <nav class="foot-nav" aria-label="Footer">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Contact</a>
-      </nav>
-    </div>
+  <footer>
+    <p>此頁面可直接分享給同行家人或朋友 😊</p>
   </footer>
 </body>
 </html>
