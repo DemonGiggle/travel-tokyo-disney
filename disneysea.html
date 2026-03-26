@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tokyo DisneySea 詳細攻略</title>
+  <style>
+    :root {
+      --bg:#f3f7ff; --card:#ffffffee; --text:#0f172a; --muted:#475569; --line:#d9e2ff;
+      --primary:#3157d5; --accent:#8b5cf6; --shadow:0 12px 35px rgba(49,87,213,.12); --radius:18px;
+    }
+    * { box-sizing:border-box; }
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin:0; color:var(--text);
+      background: radial-gradient(circle at 15% -10%, rgba(99,102,241,.25), transparent 35%), radial-gradient(circle at 90% 0%, rgba(168,85,247,.20), transparent 30%), var(--bg);
+      line-height:1.72;
+    }
+    .wrap { max-width:960px; margin:auto; padding:18px 14px 40px; }
+    .hero {
+      padding:24px 20px; border-radius:22px; color:#fff;
+      background:linear-gradient(125deg,#1e3a8a,#3157d5 55%,#7c3aed 100%); box-shadow:var(--shadow);
+    }
+    .hero h1 { margin:0; font-size:clamp(1.6rem,5vw,2.4rem); }
+    .hero p { margin:8px 0 0; opacity:.96; }
+    .back { display:inline-block; margin-top:14px; color:#fff; font-weight:700; text-decoration:none; }
+    section {
+      background:var(--card); border:1px solid rgba(255,255,255,.7); border-radius:var(--radius);
+      padding:20px; margin-top:16px; box-shadow:var(--shadow); backdrop-filter:blur(10px);
+    }
+    h2 { margin:0 0 12px; color:#1f3fb3; font-size:1.2rem; border-bottom:1px solid var(--line); padding-bottom:8px; }
+    ul, ol { padding-left:20px; margin:10px 0 0; }
+    li { margin:8px 0; }
+    .hint { color:var(--muted); font-size:.95rem; }
+    .mapcard { border:1px solid #dbe4ff; border-radius:14px; padding:14px; background:#fcfdff; }
+    .maptitle { margin:0 0 8px; color:#111827; font-weight:800; }
+    .photo-map { width:100%; height:auto; display:block; border-radius:10px; border:1px solid rgba(0,0,0,0.08); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
+    .card { border:1px solid #dbe4ff; border-radius:14px; padding:14px; background:#fff; }
+    @media (max-width:560px){ .wrap{padding:14px 12px 32px;} .hero{padding:20px 16px;} section{padding:16px;} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <h1>Day 2｜Tokyo DisneySea 詳細攻略</h1>
+      <p>DisneySea 細節獨立出來，首頁保留總覽和後續移動時程就好。</p>
+      <a class="back" href="./index.html">← 回行程總覽</a>
+    </div>
+
+    <section>
+      <h2>當日重點</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>園區時段</strong>
+          <p>09:00–16:00 以 DisneySea 為主。</p>
+        </div>
+        <div class="card">
+          <strong>玩法</strong>
+          <p>熱門設施優先，每個區域至少選一項代表設施。</p>
+        </div>
+        <div class="card">
+          <strong>後續移動</strong>
+          <p>傍晚離開舞濱，轉往淺草與晴空塔。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Sea 熱門優先順序</h2>
+      <ol>
+        <li><strong>翱翔：夢幻奇航（Soaring）</strong><br><span class="hint">地中海港灣，全園最熱門。</span></li>
+        <li><strong>玩具總動員瘋狂遊戲屋</strong><br><span class="hint">美國海濱，高互動設施。</span></li>
+        <li><strong>地心探險之旅</strong><br><span class="hint">神秘島，刺激型設施。</span></li>
+        <li><strong>印第安納瓊斯冒險旅程</strong><br><span class="hint">失落河三角洲，經典設施。</span></li>
+        <li><strong>驚魂古塔</strong><br><span class="hint">美國海濱，傍晚人氣高。</span></li>
+        <li><strong>神燈劇場</strong><br><span class="hint">阿拉伯海岸，室內表演型設施。</span></li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>離園後動線</h2>
+      <ul>
+        <li><strong>17:00｜舞濱出發</strong></li>
+        <li>JR 京葉線 → 東京站 → 銀座線 → 淺草站</li>
+        <li><strong>18:30｜抵達飯店</strong></li>
+        <li><strong>19:00–21:00｜晴空塔 Solamachi ＋ 寶可夢中心</strong>｜<a href="./skytree-guide.html">查看晴空塔 / 寶可夢中心攻略</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>園區地圖</h2>
+      <div class="mapcard">
+        <div class="maptitle">Sea 熱門設施相對位置示意圖（點圖可開官方 PDF）</div>
+        <a href="https://media2.tokyodisneyresort.jp/home/download/map/TDS_map_tc.pdf" target="_blank" rel="noopener"><img class="photo-map" src="./assets/disneysea-map.jpg" alt="東京迪士尼海洋地圖" /></a>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
