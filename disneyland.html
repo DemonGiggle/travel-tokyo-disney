@@ -38,6 +38,19 @@
     .photo-map { width:100%; height:auto; display:block; border-radius:10px; border:1px solid rgba(0,0,0,0.08); }
     .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
     .card { border:1px solid #dbe4ff; border-radius:14px; padding:14px; background:#fff; }
+    .dayflow { display:grid; gap:14px; }
+    .phase {
+      border:1px solid #dbe4ff; border-radius:16px; padding:16px; background:#fff;
+      box-shadow:0 8px 20px rgba(49,87,213,.06);
+    }
+    .phase-label {
+      display:inline-block; padding:4px 10px; border-radius:999px; background:#e8efff; color:#1e3a8a;
+      font-size:12px; font-weight:800; margin-bottom:8px;
+    }
+    .nav-links { display:grid; gap:10px; }
+    .nav-links a {
+      display:block; padding:12px 14px; border:1px solid #dbe4ff; border-radius:12px; background:#f8fbff; font-weight:700; text-decoration:none;
+    }
     @media (max-width:560px){ .wrap{padding:14px 12px 32px;} .hero{padding:20px 16px;} section{padding:16px;} }
   </style>
 </head>
@@ -68,26 +81,36 @@
     </section>
 
     <section>
-      <h2>熱門優先順序（白天）</h2>
-      <ol>
-        <li><strong>美女與野獸：城堡奇緣</strong><br><span class="hint">夢幻樂園，園區最熱門設施，建議入園後第一站。</span></li>
-        <li><strong>飛濺山</strong><br><span class="hint">動物天地，午後排隊時間長。</span></li>
-        <li><strong>Baymax 歡樂之旅</strong><br><span class="hint">明日樂園，旋轉型設施。</span></li>
-        <li><strong>怪獸電力公司</strong><br><span class="hint">明日樂園，室內射擊型。</span></li>
-        <li><strong>加勒比海盜</strong><br><span class="hint">探險樂園，室內涼爽。</span></li>
-        <li><strong>巨雷山</strong><br><span class="hint">西部樂園，經典礦車設施。</span></li>
-        <li><strong>叢林巡航</strong><br><span class="hint">探險樂園，節奏放鬆型。</span></li>
-        <li><strong>小小世界</strong><br><span class="hint">夢幻樂園，補位休息用。</span></li>
-      </ol>
-    </section>
-
-    <section>
-      <h2>夜間壓軸</h2>
-      <ul>
-        <li><strong>Electrical Parade Dreamlights</strong><br><span class="hint">通常晚間舉行，建議提前 30–45 分鐘卡位。</span></li>
-        <li><strong>城堡煙火秀</strong><br><span class="hint">多安排在閉園前，可能因風勢取消，請以當天官方 App 為準。</span></li>
-      </ul>
-      <p class="hint">建議節奏：白天主攻熱門設施 → 傍晚減少排隊改拍照與補位設施 → 晚間專心看遊行與煙火。</p>
+      <h2>樂園攻略（手機好滑版）</h2>
+      <div class="dayflow">
+        <div class="phase">
+          <div class="phase-label">早上先衝什麼</div>
+          <h3>先打最熱門的硬仗</h3>
+          <ol>
+            <li><strong>美女與野獸：城堡奇緣</strong><br><span class="hint">夢幻樂園，園區最熱門設施，建議入園後第一站。</span></li>
+            <li><strong>飛濺山</strong><br><span class="hint">午後排隊通常更長，能早就早。</span></li>
+            <li><strong>Baymax 歡樂之旅</strong><br><span class="hint">明日樂園熱門設施，早點處理比較輕鬆。</span></li>
+          </ol>
+        </div>
+        <div class="phase">
+          <div class="phase-label">中午適合休息什麼</div>
+          <h3>排較輕鬆 / 室內感較好的設施</h3>
+          <ul>
+            <li><strong>怪獸電力公司</strong>：室內射擊型。</li>
+            <li><strong>加勒比海盜</strong>：探險樂園，體感較涼爽。</li>
+            <li><strong>小小世界</strong>：很適合補位與休息。</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <div class="phase-label">晚上壓軸看什麼</div>
+          <h3>把體力留給夜間演出</h3>
+          <ul>
+            <li><strong>Electrical Parade Dreamlights</strong><br><span class="hint">建議提前 30–45 分鐘卡位。</span></li>
+            <li><strong>城堡煙火秀</strong><br><span class="hint">閉園前常見壓軸，但仍以天氣與官方 App 為準。</span></li>
+          </ul>
+          <p class="hint">傍晚後建議少排硬仗，改拍照、吃東西、等夜間節目。</p>
+        </div>
+      </div>
     </section>
 
     <section>
@@ -95,6 +118,14 @@
       <div class="mapcard">
         <div class="maptitle">Land 熱門設施相對位置示意圖（點圖可開官方 PDF）</div>
         <a href="https://media2.tokyodisneyresort.jp/home/download/map/TDL_map_tc.pdf" target="_blank" rel="noopener"><img class="photo-map" src="./assets/disneyland-map.jpg" alt="東京迪士尼樂園地圖" /></a>
+      </div>
+    </section>
+
+    <section>
+      <h2>接下來看什麼</h2>
+      <div class="nav-links">
+        <a href="./disneysea.html">下一天：查看 DisneySea 詳細攻略 →</a>
+        <a href="./index.html">回首頁總覽 →</a>
       </div>
     </section>
   </div>

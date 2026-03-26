@@ -37,6 +37,19 @@
     .photo-map { width:100%; height:auto; display:block; border-radius:10px; border:1px solid rgba(0,0,0,0.08); }
     .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
     .card { border:1px solid #dbe4ff; border-radius:14px; padding:14px; background:#fff; }
+    .dayflow { display:grid; gap:14px; }
+    .phase {
+      border:1px solid #dbe4ff; border-radius:16px; padding:16px; background:#fff;
+      box-shadow:0 8px 20px rgba(49,87,213,.06);
+    }
+    .phase-label {
+      display:inline-block; padding:4px 10px; border-radius:999px; background:#e8efff; color:#1e3a8a;
+      font-size:12px; font-weight:800; margin-bottom:8px;
+    }
+    .nav-links { display:grid; gap:10px; }
+    .nav-links a {
+      display:block; padding:12px 14px; border:1px solid #dbe4ff; border-radius:12px; background:#f8fbff; font-weight:700; text-decoration:none;
+    }
     @media (max-width:560px){ .wrap{padding:14px 12px 32px;} .hero{padding:20px 16px;} section{padding:16px;} }
   </style>
 </head>
@@ -67,25 +80,37 @@
     </section>
 
     <section>
-      <h2>Sea 熱門優先順序</h2>
-      <ol>
-        <li><strong>翱翔：夢幻奇航（Soaring）</strong><br><span class="hint">地中海港灣，全園最熱門。</span></li>
-        <li><strong>玩具總動員瘋狂遊戲屋</strong><br><span class="hint">美國海濱，高互動設施。</span></li>
-        <li><strong>地心探險之旅</strong><br><span class="hint">神秘島，刺激型設施。</span></li>
-        <li><strong>印第安納瓊斯冒險旅程</strong><br><span class="hint">失落河三角洲，經典設施。</span></li>
-        <li><strong>驚魂古塔</strong><br><span class="hint">美國海濱，傍晚人氣高。</span></li>
-        <li><strong>神燈劇場</strong><br><span class="hint">阿拉伯海岸，室內表演型設施。</span></li>
-      </ol>
-    </section>
-
-    <section>
-      <h2>離園後動線</h2>
-      <ul>
-        <li><strong>17:00｜舞濱出發</strong></li>
-        <li>JR 京葉線 → 東京站 → 銀座線 → 淺草站</li>
-        <li><strong>18:30｜抵達飯店</strong></li>
-        <li><strong>19:00–21:00｜晴空塔 Solamachi ＋ 寶可夢中心</strong>｜<a href="./skytree-guide.html">查看晴空塔 / 寶可夢中心攻略</a></li>
-      </ul>
+      <h2>樂園攻略（手機好滑版）</h2>
+      <div class="dayflow">
+        <div class="phase">
+          <div class="phase-label">早上先衝什麼</div>
+          <h3>先解最熱門的 Sea 招牌設施</h3>
+          <ol>
+            <li><strong>翱翔：夢幻奇航（Soaring）</strong><br><span class="hint">全園最熱門，早上先處理最划算。</span></li>
+            <li><strong>玩具總動員瘋狂遊戲屋</strong><br><span class="hint">美國海濱高互動設施。</span></li>
+            <li><strong>地心探險之旅</strong><br><span class="hint">神秘島代表性刺激設施。</span></li>
+          </ol>
+        </div>
+        <div class="phase">
+          <div class="phase-label">中午適合休息什麼</div>
+          <h3>排室內 / 節奏較穩的項目</h3>
+          <ul>
+            <li><strong>神燈劇場</strong>：室內表演型設施。</li>
+            <li><strong>印第安納瓊斯冒險旅程</strong>：視排隊狀況安排。</li>
+            <li>中段可搭配吃飯、補水、拍照，不要把體力一次用完。</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <div class="phase-label">晚上壓軸看什麼</div>
+          <h3>這天主軸是順利切到市區</h3>
+          <ul>
+            <li><strong>16:00 前後開始收尾</strong>，不要拖太晚離園。</li>
+            <li><strong>17:00｜舞濱出發</strong>：JR 京葉線 → 東京站 → 銀座線 → 淺草站。</li>
+            <li><strong>19:00–21:00｜晴空塔 Solamachi ＋ 寶可夢中心</strong></li>
+          </ul>
+          <p class="hint">這一天的真正壓軸不是園內夜秀，而是順利接上淺草與晴空塔晚間行程。</p>
+        </div>
+      </div>
     </section>
 
     <section>
@@ -93,6 +118,14 @@
       <div class="mapcard">
         <div class="maptitle">Sea 熱門設施相對位置示意圖（點圖可開官方 PDF）</div>
         <a href="https://media2.tokyodisneyresort.jp/home/download/map/TDS_map_tc.pdf" target="_blank" rel="noopener"><img class="photo-map" src="./assets/disneysea-map.jpg" alt="東京迪士尼海洋地圖" /></a>
+      </div>
+    </section>
+
+    <section>
+      <h2>接下來看什麼</h2>
+      <div class="nav-links">
+        <a href="./skytree-guide.html">接著去：查看晴空塔 / 寶可夢中心攻略 →</a>
+        <a href="./index.html">回首頁總覽 →</a>
       </div>
     </section>
   </div>
