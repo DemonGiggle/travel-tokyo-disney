@@ -15,48 +15,58 @@
       margin:0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:linear-gradient(180deg,#eff6ff 0%, #f8fafc 100%); color:var(--text); line-height:1.7;
     }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 24px 16px 56px; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 18px 14px 48px; }
     .hero {
       background: linear-gradient(135deg,#1d4ed8,#7c3aed);
-      color:white; border-radius:24px; padding:28px 22px; box-shadow:0 12px 30px rgba(37,99,235,.18);
+      color:white; border-radius:22px; padding:22px 18px; box-shadow:0 12px 30px rgba(37,99,235,.18);
     }
     h1,h2,h3 { line-height:1.3; margin:0 0 12px; }
-    h1 { font-size: clamp(28px, 5vw, 40px); }
-    h2 { margin-top:28px; font-size: 24px; }
-    h3 { margin-top:20px; font-size: 18px; }
+    h1 { font-size: clamp(26px, 6vw, 40px); }
+    h2 { margin-top:26px; font-size: clamp(20px, 4.4vw, 24px); }
+    h3 { margin-top:18px; font-size: 18px; }
     p { margin:10px 0; }
-    .lead { font-size: 16px; opacity:.96; }
-    .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin-top:18px; }
+    .lead { font-size: 15px; opacity:.96; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-top:16px; }
     .card {
-      background:var(--card); border:1px solid var(--line); border-radius:20px; padding:18px;
+      background:var(--card); border:1px solid var(--line); border-radius:18px; padding:16px;
       box-shadow:0 6px 18px rgba(15,23,42,.05);
     }
     .pill {
       display:inline-block; padding:4px 10px; border-radius:999px; font-size:12px; font-weight:700;
-      background:var(--accent-soft); color:var(--accent); margin-bottom:10px;
+      background:var(--accent-soft); color:var(--accent); margin-bottom:8px;
     }
     .tip { background:var(--good-bg); color:var(--good); border-left:4px solid #10b981; padding:12px 14px; border-radius:12px; }
     .warn { background:var(--warn-bg); color:var(--warn); border-left:4px solid #f59e0b; padding:12px 14px; border-radius:12px; }
-    ul { margin:10px 0 0 20px; padding:0; }
+    ul, ol { margin:10px 0 0 20px; padding:0; }
     li { margin:6px 0; }
     a { color:var(--accent); text-decoration:none; }
     a:hover { text-decoration:underline; }
-    .links a { display:block; margin:8px 0; word-break:break-word; }
-    .footer { margin-top:36px; color:var(--muted); font-size:14px; }
-    .back { margin-top:20px; display:inline-block; font-weight:700; }
+    .links a { display:block; margin:10px 0; word-break:break-word; }
+    .footer { margin-top:34px; color:var(--muted); font-size:14px; }
+    .back { margin-top:18px; display:inline-block; font-weight:700; color:white; }
     .table {
       width:100%; border-collapse:collapse; margin-top:12px; overflow:hidden; border-radius:14px;
       background:white; border:1px solid var(--line);
     }
     .table th, .table td { padding:12px 14px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
     .table th { background:#f8fafc; width:160px; }
+    @media (max-width: 700px) {
+      .wrap { padding: 14px 12px 36px; }
+      .hero { padding:18px 14px; border-radius:18px; }
+      .card { padding:14px; border-radius:16px; }
+      .grid { grid-template-columns: 1fr; gap:12px; }
+      .table, .table tbody, .table tr, .table th, .table td { display:block; width:100%; }
+      .table tr { border-bottom:1px solid var(--line); }
+      .table th { border-bottom:none; width:auto; padding-bottom:4px; }
+      .table td { padding-top:4px; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <section class="hero">
       <h1>晴空塔 ＆ 寶可夢中心快速攻略</h1>
-      <p class="lead">重點放在：<strong>官方樓層地圖</strong>、<strong>寶可夢中心所在樓層</strong>，以及晴空塔 / Solamachi 裡面值得吃的東西。</p>
+      <p class="lead">重點放在：<strong>官方樓層地圖</strong>、<strong>寶可夢中心所在樓層</strong>、<strong>現場怎麼走最不容易迷路</strong>，以及晴空塔 / Solamachi 裡面比較值得吃的方向。</p>
       <a class="back" href="./index.html">← 回東京旅遊主頁</a>
     </section>
 
@@ -71,7 +81,7 @@
         <div class="card">
           <div class="pill">店鋪位置</div>
           <h3>寶可夢中心在哪</h3>
-          <p><strong>Pokémon Center SKYTREE TOWN 在 Tokyo Solamachi East Yard 4F</strong>。</p>
+          <p><strong>Pokémon Center SKYTREE TOWN 在 Tokyo Solamachi East Yard 4F</strong>，更精確地說是官方店鋪資訊寫的 <strong>4F East Yard 11 Block</strong>。</p>
         </div>
       </div>
     </section>
@@ -100,10 +110,17 @@
             <a href="https://www.pokemon.co.jp/shop/en/pokecen/skytreetown/" target="_blank" rel="noopener">https://www.pokemon.co.jp/shop/en/pokecen/skytreetown/</a>
           </td>
         </tr>
+        <tr>
+          <th>店鋪位置頁</th>
+          <td>
+            Solamachi 官方店鋪資訊<br />
+            <a href="https://en.www.tokyo-solamachi.jp/shop/483/" target="_blank" rel="noopener">https://en.www.tokyo-solamachi.jp/shop/483/</a>
+          </td>
+        </tr>
       </table>
 
       <div class="tip" style="margin-top:16px;">
-        官方資料顯示：<strong>Pokémon Center SKYTREE TOWN 位於 Tokyo SKYTREE TOWN Solamachi East Yard 4F</strong>。如果你只是想找到寶可夢中心，直接看 Solamachi 的 4F 導覽最有效。
+        <strong>最有用的一句：</strong>如果你只是想找到寶可夢中心，直接看 <strong>4F East Yard</strong> 相關導覽就夠了。
       </div>
     </section>
 
@@ -121,7 +138,7 @@
 
     <section>
       <h2>晴空塔 / Solamachi 有名食物建議</h2>
-      <p>我這邊先整理成「適合旅遊現場使用」的版本，重點不是硬背店名，而是知道<strong>該往哪一層找哪類食物</strong>。</p>
+      <p>我幫你整理成手機上比較好掃的版本：先看<strong>你是哪種吃法</strong>，再決定往哪一層走。</p>
 
       <div class="grid">
         <div class="card">
@@ -138,26 +155,40 @@
         </div>
 
         <div class="card">
-          <div class="pill">邊走邊吃</div>
-          <h3>4F：街頭小吃＋伴手禮區</h3>
-          <p>官方描述 4F West Yard 有一排 street food，4F East Yard 則是大型伴手禮樓層。很適合：</p>
+          <div class="pill">景觀系</div>
+          <h3>30F / 31F：SKYTREE VIEW</h3>
+          <p>如果你想吃得比較有「來晴空塔」的感覺，官方高樓餐廳區是最直接的選擇。</p>
           <ul>
-            <li>逛寶可夢中心前後順便吃點小東西</li>
-            <li>買東京風伴手禮</li>
-            <li>找比較輕鬆、不用坐太久的補給點</li>
+            <li>壽司</li>
+            <li>義大利麵</li>
+            <li>法式</li>
+            <li>燒肉</li>
+            <li>涮涮鍋 / 日式料理 / 火鍋</li>
           </ul>
+          <p>比較適合排晚餐、看景、慢慢吃。</p>
         </div>
 
         <div class="card">
           <div class="pill">快吃快走</div>
           <h3>3F：Food Court</h3>
-          <p>3F West Yard 的 <strong>Solamachi Tabe-Terrace</strong> 是美食街型態，適合時間有限時快速解決。</p>
+          <p>3F West Yard 的 <strong>Solamachi Tabe-Terrace</strong> 是美食街型態，適合時間有限、逛街中途補一餐。</p>
+        </div>
+
+        <div class="card">
+          <div class="pill">逛街順路吃</div>
+          <h3>4F：街頭小吃＋角色商店</h3>
+          <p>官方描述 4F West Yard 有 street food，4F East Yard 則是伴手禮與角色商店密集區。這層很適合：</p>
+          <ul>
+            <li>逛寶可夢中心前後順便補給</li>
+            <li>不想特地再上下樓找吃的</li>
+            <li>想把逛街跟吃東西放一起</li>
+          </ul>
         </div>
 
         <div class="card">
           <div class="pill">甜點 / 名產</div>
           <h3>2F：Food Marche</h3>
-          <p>這裡比較像甜點、熟食、限定伴手禮集中區。若你想找：</p>
+          <p>比較像甜點、熟食、限定伴手禮集中區。若你想找：</p>
           <ul>
             <li>東京限定甜點</li>
             <li>回飯店前可帶走的點心</li>
@@ -167,19 +198,62 @@
         </div>
       </div>
 
+      <div class="card" style="margin-top:16px;">
+        <h3>更具體的店家方向</h3>
+        <ul>
+          <li><strong>想吃「值得拍照 / 有景觀」：</strong>先看 <strong>30F / 31F</strong> 的 SKYTREE VIEW 餐廳。</li>
+          <li><strong>想簡單解決一餐：</strong>先看 <strong>3F Food Court</strong>。</li>
+          <li><strong>想逛寶可夢中心順便吃：</strong>先留在 <strong>4F</strong>。</li>
+          <li><strong>想買甜點、限定點心、帶回飯店：</strong>先看 <strong>2F</strong>。</li>
+        </ul>
+      </div>
+
       <div class="warn" style="margin-top:16px;">
-        如果你要我再更進一步，我可以下一版幫你補成「<strong>實際推薦店家清單</strong>」：例如甜點、拉麵、正餐、可帶走伴手禮各挑幾間，並附上樓層與適合時段。
+        這一版先以「現場決策好用」為主。如果你要，我下一版可以再補成<strong>實際店名清單版</strong>：幫你挑甜點、快餐、正餐各幾間，並標註推薦理由。
       </div>
     </section>
 
     <section>
-      <h2>我會怎麼走</h2>
-      <div class="card">
-        <ol>
-          <li>先看 <strong>4F East Yard</strong> 的樓層圖，直接鎖定寶可夢中心。</li>
-          <li>逛完寶可夢中心後，再決定要往 <strong>4F 小吃</strong>、<strong>3F 美食街</strong>、或 <strong>6F/7F 正餐</strong>。</li>
-          <li>如果只是想省體力，寶可夢中心＋4F/3F 補給就很夠；如果想認真吃，再往 6F/7F。</li>
-        </ol>
+      <h2>實戰導航（手機版好掃）</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="pill">Step 1</div>
+          <h3>先到 Oshiage / Tokyo Skytree 站</h3>
+          <p>官方說明是從 <strong>Tokyo Skytree Station</strong> 或 <strong>Oshiage Station</strong> 都能進 TOKYO SKYTREE TOWN。</p>
+          <p>如果你是搭多數地鐵線過來，通常會更常從 <strong>Oshiage</strong> 進。</p>
+        </div>
+
+        <div class="card">
+          <div class="pill">Step 2</div>
+          <h3>進館後先鎖定 4F East Yard</h3>
+          <p>不要先想「我要去哪間餐廳」，先想：<strong>我要去 Solamachi 4F East Yard 11 Block</strong>。</p>
+          <p>這樣找到寶可夢中心最快，路線也最不容易亂。</p>
+        </div>
+
+        <div class="card">
+          <div class="pill">Step 3</div>
+          <h3>逛完寶可夢中心再決定吃什麼</h3>
+          <ul>
+            <li><strong>省時間：</strong>3F Food Court</li>
+            <li><strong>順路補給：</strong>4F 周邊</li>
+            <li><strong>正式晚餐：</strong>6F / 7F / 30F / 31F</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="pill">Step 4</div>
+          <h3>怕迷路就只開這三個</h3>
+          <ul>
+            <li>Solamachi Floor Guide</li>
+            <li>4F 樓層資訊</li>
+            <li>Pokémon Center 官方頁</li>
+          </ul>
+          <p>現場其實不用一次開太多頁，這樣最清楚。</p>
+        </div>
+      </div>
+
+      <div class="tip" style="margin-top:16px;">
+        <strong>最短思路：</strong>到站 → 進 Solamachi → 找 4F East Yard → 到 Pokémon Center → 再決定去 3F / 4F / 6F+ 吃東西。這樣最不容易迷路。
       </div>
     </section>
 
@@ -189,12 +263,15 @@
         <a href="https://en.www.tokyo-solamachi.jp/floor/" target="_blank" rel="noopener">官方樓層地圖｜Tokyo Solamachi Floor Guide</a>
         <a href="https://www.tokyo-solamachi.jp/pages/data/pdf/en/floorguide.pdf" target="_blank" rel="noopener">官方 PDF 樓層圖｜Floor Guide PDF</a>
         <a href="https://www.pokemon.co.jp/shop/en/pokecen/skytreetown/" target="_blank" rel="noopener">寶可夢中心官方頁｜Pokémon Center SKYTREE TOWN</a>
+        <a href="https://en.www.tokyo-solamachi.jp/shop/483/" target="_blank" rel="noopener">寶可夢中心店鋪資訊｜4F East Yard 11 Block</a>
+        <a href="https://en.www.tokyo-solamachi.jp/floor/4f/" target="_blank" rel="noopener">4F 樓層資訊｜直接找寶可夢中心最有用</a>
         <a href="https://en.www.tokyo-solamachi.jp/restaurant/" target="_blank" rel="noopener">Solamachi Gourmet / 餐廳總覽</a>
+        <a href="https://en.www.tokyo-solamachi.jp/enjoy/skytreeview/" target="_blank" rel="noopener">高樓景觀餐廳｜Solamachi Dining SKYTREE VIEW</a>
       </div>
     </section>
 
     <p class="footer">
-      資料整理自 Tokyo Solamachi 官方樓層導覽、官方餐廳頁與 Pokémon Center 官方店鋪頁。實際店鋪與營業時間仍以現場 / 官網最新資訊為準。
+      資料整理自 Tokyo Solamachi 官方樓層導覽、官方餐廳頁、官方高樓景觀餐廳介紹，以及 Pokémon Center 官方 / Solamachi 店鋪頁。實際店鋪與營業時間仍以現場 / 官網最新資訊為準。
     </p>
   </div>
 </body>
