@@ -99,6 +99,36 @@
     .hint { color: var(--muted); margin-top: 6px; font-size: .95rem; }
     .legend { display:flex; flex-wrap:wrap; gap:8px; margin: 10px 0 0; }
     .legend .badge { margin-right: 0; }
+    .collapse-card {
+      margin-top: 14px;
+      border: 1px solid #dbe4ff;
+      border-radius: 14px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .collapse-card summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 14px 16px;
+      font-weight: 800;
+      color: #1e3a8a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .collapse-card summary::-webkit-details-marker { display: none; }
+    .collapse-card summary::after {
+      content: "＋";
+      font-size: 20px;
+      line-height: 1;
+      color: #2f49b8;
+    }
+    .collapse-card[open] summary::after { content: "－"; }
+    .collapse-content {
+      padding: 0 16px 16px;
+      border-top: 1px solid #e6ecff;
+    }
     .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
     .quicknav {
@@ -358,40 +388,45 @@
         <li class="hint">適合帶小孩與行李，不用現場再搬運轉乘。</li>
       </ul>
 
-      <p class="hint">若接機臨時有變動，再改走以下備案。</p>
+      <details class="collapse-card">
+        <summary>查看交通備案（JR／利木津巴士）</summary>
+        <div class="collapse-content">
+          <p class="hint">若接機臨時有變動，再改走以下備案。</p>
 
-      <ul>
-        <li style="margin-top:12px"><strong>備案一：JR 鐵道轉乘（穩定、班次多）</strong></li>
-        <li>
-          <span class="badge b-jr-jo">JR JO</span>
-          成田機場（第二航廈）站 → <strong>東京站</strong>（JR <strong>總武線快速 Sobu Rapid</strong>／<strong>成田線 Narita Line</strong> 系統）
-          <div class="hint">找月台指標：<span class="mono">JR</span> → <span class="mono">JO</span>（藍色）</div>
-        </li>
-        <li>
-          <span class="badge b-jr-je">JR JE</span>
-          東京站 → <strong>舞濱站（Maihama）</strong>（JR 京葉線 <strong>Keiyō Line</strong>／<strong>武藏野線直通</strong>）
-          <div class="hint">找月台指標：<span class="mono">JR</span> → <span class="mono">JE</span>（紅色／深紅）</div>
-        </li>
-        <li>
-          <span class="badge b-drl">Resort</span>
-          舞濱站 →（步行連通道）→ <strong>Resort Gateway Station</strong> → 迪士尼度假區線（單軌）→ <strong>Tokyo Disneyland Station</strong> → 步行至 Disneyland Hotel
-          <div class="hint">也可從舞濱站步行至飯店（約 15–20 分鐘）。</div>
-        </li>
+          <ul>
+            <li style="margin-top:12px"><strong>備案一：JR 鐵道轉乘（穩定、班次多）</strong></li>
+            <li>
+              <span class="badge b-jr-jo">JR JO</span>
+              成田機場（第二航廈）站 → <strong>東京站</strong>（JR <strong>總武線快速 Sobu Rapid</strong>／<strong>成田線 Narita Line</strong> 系統）
+              <div class="hint">找月台指標：<span class="mono">JR</span> → <span class="mono">JO</span>（藍色）</div>
+            </li>
+            <li>
+              <span class="badge b-jr-je">JR JE</span>
+              東京站 → <strong>舞濱站（Maihama）</strong>（JR 京葉線 <strong>Keiyō Line</strong>／<strong>武藏野線直通</strong>）
+              <div class="hint">找月台指標：<span class="mono">JR</span> → <span class="mono">JE</span>（紅色／深紅）</div>
+            </li>
+            <li>
+              <span class="badge b-drl">Resort</span>
+              舞濱站 →（步行連通道）→ <strong>Resort Gateway Station</strong> → 迪士尼度假區線（單軌）→ <strong>Tokyo Disneyland Station</strong> → 步行至 Disneyland Hotel
+              <div class="hint">也可從舞濱站步行至飯店（約 15–20 分鐘）。</div>
+            </li>
 
-        <li style="margin-top:12px"><strong>備案二：機場利木津巴士（直達、免搬行李）</strong></li>
-        <li>
-          🚌 <strong>成田機場 → 東京迪士尼樂園飯店</strong>（Airport Limousine Bus 直達）
-          <div class="hint">下車即在迪士尼官方飯店門口，適合攜帶行李與小孩同行。</div>
-          <div class="hint">車程約 60–90 分鐘（視交通狀況），班次依時段不同，建議事先查詢當日時刻表。</div>
-        </li>
-      </ul>
+            <li style="margin-top:12px"><strong>備案二：機場利木津巴士（直達、免搬行李）</strong></li>
+            <li>
+              🚌 <strong>成田機場 → 東京迪士尼樂園飯店</strong>（Airport Limousine Bus 直達）
+              <div class="hint">下車即在迪士尼官方飯店門口，適合攜帶行李與小孩同行。</div>
+              <div class="hint">車程約 60–90 分鐘（視交通狀況），班次依時段不同，建議事先查詢當日時刻表。</div>
+            </li>
+          </ul>
 
-      <div class="legend" aria-label="路線速查">
-        <span class="badge b-jr-jo">JR JO</span>
-        <span class="badge b-jr-je">JR JE</span>
-        <span class="badge b-drl">Resort</span>
-      </div>
-      <p class="hint">目前以接機為主；若遇到班機延誤、接機異常或臨時取消，再切換到 JR 或利木津巴士備案。</p>
+          <div class="legend" aria-label="路線速查">
+            <span class="badge b-jr-jo">JR JO</span>
+            <span class="badge b-jr-je">JR JE</span>
+            <span class="badge b-drl">Resort</span>
+          </div>
+          <p class="hint">目前以接機為主；若遇到班機延誤、接機異常或臨時取消，再切換到 JR 或利木津巴士備案。</p>
+        </div>
+      </details>
     </section>
 
     <section>
