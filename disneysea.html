@@ -50,6 +50,18 @@
     .nav-links a {
       display:block; padding:12px 14px; border:1px solid #dbe4ff; border-radius:12px; background:#f8fbff; font-weight:700; text-decoration:none;
     }
+    .mode-switch { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+    .mode-switch input { position:absolute; opacity:0; pointer-events:none; }
+    .mode-switch label {
+      display:inline-flex; align-items:center; justify-content:center;
+      min-width:88px; padding:10px 14px; border-radius:999px; border:1px solid #c9d7ff;
+      background:#fff; color:#3157d5; font-weight:800; cursor:pointer;
+    }
+    .mode-panel { display:none; }
+    #mode-sunny:checked ~ .dayflow .mode-panel[data-mode="sunny"],
+    #mode-rainy:checked ~ .dayflow .mode-panel[data-mode="rainy"] { display:block; }
+    #mode-sunny:checked ~ .mode-switch label[for="mode-sunny"],
+    #mode-rainy:checked ~ .mode-switch label[for="mode-rainy"] { background:#3157d5; color:#fff; border-color:#3157d5; }
     @media (max-width:560px){ .wrap{padding:14px 12px 32px;} .hero{padding:20px 16px;} section{padding:16px;} }
   </style>
 </head>
@@ -81,8 +93,14 @@
 
     <section>
       <h2>樂園攻略（手機好滑版）</h2>
+      <input type="radio" name="weather-mode" id="mode-sunny" checked>
+      <input type="radio" name="weather-mode" id="mode-rainy">
+      <div class="mode-switch" role="tablist" aria-label="天氣模式切換">
+        <label for="mode-sunny">☀️ 晴天</label>
+        <label for="mode-rainy">🌧️ 雨天</label>
+      </div>
       <div class="dayflow">
-        <div class="phase">
+        <div class="phase mode-panel" data-mode="sunny">
           <div class="phase-label">早上先衝什麼</div>
           <h3>先解最熱門的 Sea 招牌設施</h3>
           <ol>
@@ -91,7 +109,7 @@
             <li><strong>地心探險之旅</strong><br><span class="hint">神秘島代表性刺激設施。</span></li>
           </ol>
         </div>
-        <div class="phase">
+        <div class="phase mode-panel" data-mode="sunny">
           <div class="phase-label">中午適合休息什麼</div>
           <h3>排室內 / 節奏較穩的項目</h3>
           <ul>
@@ -100,7 +118,7 @@
             <li>中段可搭配吃飯、補水、拍照，不要把體力一次用完。</li>
           </ul>
         </div>
-        <div class="phase">
+        <div class="phase mode-panel" data-mode="sunny">
           <div class="phase-label">晚上壓軸看什麼</div>
           <h3>這天主軸是順利切到市區</h3>
           <ul>
@@ -111,6 +129,17 @@
           <p class="hint">這一天的真正壓軸不是園內夜秀，而是順利接上淺草與晴空塔晚間行程。</p>
         </div>
       </div>
+        <div class="phase mode-panel" data-mode="rainy">
+          <div class="phase-label">雨天模式</div>
+          <h3>優先走室內設施 / 表演 / 商店區動線</h3>
+          <ul>
+            <li><strong>上午：</strong>海底兩萬哩、神燈劇場、龜龜漫談。</li>
+            <li><strong>中午：</strong>辛巴達傳奇之旅、商店區、用餐休息，避開長時間淋雨排隊。</li>
+            <li><strong>下午：</strong>看雨勢再決定是否補熱門設施，或改在美國海濱 / 地中海港灣周邊室內點位活動。</li>
+            <li><strong>離園：</strong>抓早一點離園，保留轉往市區的移動緩衝。</li>
+          </ul>
+          <p class="hint">DisneySea 戶外體感會更明顯，下雨天建議把重點放在節奏順、少淋雨、不要太趕。</p>
+        </div>
     </section>
 
     <section>

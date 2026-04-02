@@ -51,6 +51,18 @@
     .nav-links a {
       display:block; padding:12px 14px; border:1px solid #dbe4ff; border-radius:12px; background:#f8fbff; font-weight:700; text-decoration:none;
     }
+    .mode-switch { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+    .mode-switch input { position:absolute; opacity:0; pointer-events:none; }
+    .mode-switch label {
+      display:inline-flex; align-items:center; justify-content:center;
+      min-width:88px; padding:10px 14px; border-radius:999px; border:1px solid #c9d7ff;
+      background:#fff; color:#3157d5; font-weight:800; cursor:pointer;
+    }
+    .mode-panel { display:none; }
+    #mode-sunny:checked ~ .dayflow .mode-panel[data-mode="sunny"],
+    #mode-rainy:checked ~ .dayflow .mode-panel[data-mode="rainy"] { display:block; }
+    #mode-sunny:checked ~ .mode-switch label[for="mode-sunny"],
+    #mode-rainy:checked ~ .mode-switch label[for="mode-rainy"] { background:#3157d5; color:#fff; border-color:#3157d5; }
     @media (max-width:560px){ .wrap{padding:14px 12px 32px;} .hero{padding:20px 16px;} section{padding:16px;} }
   </style>
 </head>
@@ -82,8 +94,14 @@
 
     <section>
       <h2>樂園攻略（手機好滑版）</h2>
+      <input type="radio" name="weather-mode" id="mode-sunny" checked>
+      <input type="radio" name="weather-mode" id="mode-rainy">
+      <div class="mode-switch" role="tablist" aria-label="天氣模式切換">
+        <label for="mode-sunny">☀️ 晴天</label>
+        <label for="mode-rainy">🌧️ 雨天</label>
+      </div>
       <div class="dayflow">
-        <div class="phase">
+        <div class="phase mode-panel" data-mode="sunny">
           <div class="phase-label">早上先衝什麼</div>
           <h3>先打最熱門的硬仗</h3>
           <ol>
@@ -94,7 +112,7 @@
             <li><strong>星際旅行：冒險續航</strong><br><span class="hint">明日樂園，和 Baymax 同區，適合一起安排。</span></li>
           </ol>
         </div>
-        <div class="phase">
+        <div class="phase mode-panel" data-mode="sunny">
           <div class="phase-label">中午適合休息什麼</div>
           <h3>排較輕鬆 / 室內感較好的設施</h3>
           <ul>
@@ -103,7 +121,7 @@
             <li><strong>小小世界</strong>：很適合補位與休息。</li>
           </ul>
         </div>
-        <div class="phase">
+        <div class="phase mode-panel" data-mode="sunny">
           <div class="phase-label">晚上壓軸看什麼</div>
           <h3>把體力留給夜間演出</h3>
           <ul>
@@ -113,6 +131,17 @@
           <p class="hint">傍晚後建議少排硬仗，改拍照、吃東西、等夜間節目。</p>
         </div>
       </div>
+        <div class="phase mode-panel" data-mode="rainy">
+          <div class="phase-label">雨天模式</div>
+          <h3>優先改玩室內 / 較不受雨勢影響的設施</h3>
+          <ul>
+            <li><strong>上午：</strong>小熊維尼獵蜜記、怪獸電力公司「迷藏巡遊車」、幽靈公館。</li>
+            <li><strong>中午：</strong>加勒比海盜、米奇幻想曲、魅力發現劇場，順便吃飯休息。</li>
+            <li><strong>下午 / 傍晚：</strong>視雨勢補小小世界、商店區、拍照點，減少戶外久排。</li>
+            <li><strong>晚上：</strong>夜間遊行 / 煙火容易受天候影響，當天以官方 App 為準。</li>
+          </ul>
+          <p class="hint">如果是間歇雨，先把戶外大排隊項目往天氣較穩的時段挪，室內設施當作緩衝。</p>
+        </div>
     </section>
 
     <section>
