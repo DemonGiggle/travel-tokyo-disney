@@ -131,6 +131,28 @@
     }
     .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
+    .station-map {
+      margin-top: 16px;
+      border: 1px solid #dbe4ff;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(49, 87, 213, 0.10);
+    }
+    .station-map img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #fff;
+    }
+    .station-map .caption {
+      padding: 12px 14px;
+      color: #475569;
+      font-size: .95rem;
+      border-top: 1px solid #e6ecff;
+      background: #f8fbff;
+    }
+
     .quicknav {
       position: sticky;
       top: 8px;
@@ -537,6 +559,10 @@
         <li>依這班官方時刻，<strong>10:24 自淺草發車，11:16 抵達空港第2ビル</strong>，車程約 <strong>52 分鐘</strong></li>
         <li><span class="time">14:30</span> CI101 起飛</li>
       </ul>
+      <div class="station-map">
+        <img src="./assets/asakusa-station-map.jpg" alt="淺草站站內地圖" />
+        <div class="caption">附上淺草站站內地圖，方便回程當天找往押上／京成／北總線方向的動線。</div>
+      </div>
     </section>
   </main>
 
