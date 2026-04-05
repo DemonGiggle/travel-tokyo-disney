@@ -139,6 +139,11 @@
       background: #fff;
       box-shadow: 0 10px 24px rgba(49, 87, 213, 0.10);
     }
+    .station-map-trigger {
+      display: block;
+      cursor: zoom-in;
+      background: #fff;
+    }
     .station-map img {
       display: block;
       width: 100%;
@@ -151,6 +156,42 @@
       font-size: .95rem;
       border-top: 1px solid #e6ecff;
       background: #f8fbff;
+    }
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(15, 23, 42, 0.82);
+      z-index: 1000;
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: min(96vw, 1400px);
+      max-height: 92vh;
+      width: auto;
+      height: auto;
+      border-radius: 14px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.35);
+      background: #fff;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      border: 0;
+      border-radius: 999px;
+      width: 42px;
+      height: 42px;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      color: #0f172a;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 8px 20px rgba(0,0,0,.2);
     }
 
     .quicknav {
@@ -560,11 +601,18 @@
         <li><span class="time">14:30</span> CI101 起飛</li>
       </ul>
       <div class="station-map">
-        <img src="./assets/asakusa-station-map.jpg" alt="淺草站站內地圖" />
-        <div class="caption">附上淺草站站內地圖，方便回程當天找往押上／京成／北總線方向的動線。</div>
+        <a class="station-map-trigger" href="./assets/asakusa-station-map.jpg" target="_blank" rel="noopener" aria-label="放大查看淺草站站內地圖">
+          <img src="./assets/asakusa-station-map.jpg" alt="淺草站站內地圖" />
+        </a>
+        <div class="caption">附上淺草站站內地圖，點擊圖片可放大查看；方便回程當天找往押上／京成／北總線方向的動線。</div>
       </div>
     </section>
   </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="關閉放大檢視">×</button>
+    <img id="lightboxImage" src="" alt="放大檢視站內地圖" />
+  </div>
 
   <footer>
     <p>此頁面可直接分享給同行家人或朋友 😊</p>
@@ -600,6 +648,32 @@
       modeBtn.classList.toggle('active', on);
       modeBtn.textContent = on ? '✅ Checklist 模式已開啟' : '✅ 開啟 Checklist 模式';
       localStorage.setItem(modeKey, on ? 'on' : 'off');
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const stationMapTrigger = document.querySelector('.station-map-trigger');
+
+    stationMapTrigger?.addEventListener('click', (e) => {
+      e.preventDefault();
+      lightboxImage.src = stationMapTrigger.href;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImage.src = '';
+    };
+
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightbox?.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target === lightboxImage) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox?.classList.contains('open')) closeLightbox();
     });
   </script>
 </body>
